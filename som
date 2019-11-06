@@ -1,0 +1,28 @@
+import numpy as np
+import skfuzzy as fuzz
+x=np.array([[1,1,0,0],[0,0,0,1],[1,0,0,0],[0,0,1,1]])
+w=np.array([[0.2,0.8],[0.6,0.4],[0.5,0.7],[0.9,0.3]])
+e=1
+d=[0,0]
+change_in_w=0
+learn_r=0.6
+while(e<=3):
+    print("input no. ",e)
+    for i in range(len(x)):
+        for j in range(len(w[1])):
+            temp=0
+            temp=temp+((x[i,j]-w[i,j])**2)
+        d[j]=temp
+        if(d[0]<d[1]):
+            J=0
+        else:
+            J=1
+        print("Winning unit is : ",J+1)
+        print("Updating" )
+        for m in range(4):
+            cw=lr*(x[i,m]-w[m,J])
+            w[m,J]=w[m,J]+cw
+        print("Updated weights ",w)
+    e=e+1
+    lr=0.5*lr
+    print('Updated learning rate after ',e,'epoc is ',lr)

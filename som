@@ -26,3 +26,4 @@ while(e<=3):
     e=e+1
     lr=0.5*lr
     print('Updated learning rate after ',e,'epoc is ',lr)
+    

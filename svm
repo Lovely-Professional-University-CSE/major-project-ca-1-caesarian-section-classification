@@ -1,5 +1,7 @@
 import pandas as pd
 
+import seaborn as sns
+
 import numpy as np
 
 from scipy.io import arff
@@ -21,8 +23,6 @@ df['Heart Problem']=df['Heart Problem'].astype(int)
 df['Caesarian']=df['Caesarian'].astype(int)
 
 matrix=df.corr()
-
-import seaborn as sns
 
 sns.heatmap(matrix,vmax=0.8,square=True,cmap='BrBG')
 

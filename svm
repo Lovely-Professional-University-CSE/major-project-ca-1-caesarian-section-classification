@@ -1,3 +1,53 @@
-from sklearn import dataset
+import pandas as pd
+
 import numpy as np
 
+from scipy.io import arff
+
+data = pd.read_csv ('csv_result-caesarian.csv')
+
+df = pd.DataFrame(data)
+
+df['Age']=df['Age'].astype(int)
+
+df['Delivery number']=df['Delivery number'].astype(int)
+
+df['Delivery time']=df['Delivery time'].astype(int)
+
+df['Blood of Pressure']=df['Blood of Pressure'].astype(int)
+
+df['Heart Problem']=df['Heart Problem'].astype(int)
+
+df['Caesarian']=df['Caesarian'].astype(int)
+
+matrix=df.corr()
+
+import seaborn as sns
+
+sns.heatmap(matrix,vmax=0.8,square=True,cmap='BrBG')
+
+from sklearn.model_selection import train_test_split
+
+y=df['Caesarian']
+
+df.drop('Caesarian',inplace=True,axis=1)
+
+x=df
+
+xtr,xte,ytr,yte=train_test_split(x,y,test_size=0.2)
+
+from sklearn.svm import SVC
+
+from sklearn.linear_model import LogisticRegression
+
+obj=SVC(C=1.0,gamma='auto')
+
+obj.fit(xtr,ytr)
+
+pred=obj.predict(xte).reshape(-1,1)
+
+from sklearn.metrics import accuracy_score
+
+acc=accuracy_score(yte,pred)*100
+
+print(acc)

@@ -1,3 +1,5 @@
+import numpy as np
+import pandas as pd
 from random import seed
 from random import randrange
 from csv import reader

@@ -43,18 +43,7 @@ for i in range(5):
     second_weights = second_weights + (learning_rate*(l[i]-second_weights))
     
     learning_rate = learning_rate*0.5
-
- print("input no. ",e)
-    for i in range(len(x)):
-        for j in range(len(w[1])):
-            temp=0
-            temp=temp+((x[i,j]-w[i,j])**2)
-        d[j]=temp
-        if(d[0]<d[1]):
-            J=0
    
-
-
 %matplotlib inline
 import matplotlib.pyplot as plt
 

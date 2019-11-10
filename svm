@@ -4,8 +4,6 @@ import seaborn as sns
 
 import numpy as np
 
-from scipy.io import arff
-
 data = pd.read_csv ('csv_result-caesarian.csv')
 
 df = pd.DataFrame(data)

@@ -1,13 +1,50 @@
+from sklearn  import datasets
+
+import pandas as pd
+
 import numpy as np
-import skfuzzy as fuzz
-x=np.array([[1,1,0,0],[0,0,0,1],[1,0,0,0],[0,0,1,1]])
-w=np.array([[0.2,0.8],[0.6,0.4],[0.5,0.7],[0.9,0.3]])
-e=1
-d=[0,0]
-change_in_w=0
-learn_r=0.6
-while(e<=3):
-    print("input no. ",e)
+
+dataset = pd.read_csv ('csv_result-caesarian.csv')
+
+dataset.head()
+
+dataset.columns
+
+x = dataset.iloc[:,:].values
+
+weights = np.random.uniform(size = (2,1))
+
+weights
+
+weights[1,0]
+
+first_weights = weights[0,0]
+
+second_weights = weights[1,0]
+
+len(x)
+
+l = x[0]
+
+l[1]
+
+leanring_rate = np.random.rand()
+
+learning_rate = leanring_rate
+
+for i in range(5):
+    first = (l[i]-first_weights)
+    first_square = first**2
+    second = (l[i]-second_weights)
+    second_square = second**2
+    answer = min(first_square,second_square)
+    print(answer)
+    first_weights = first_weights+(learning_rate*(l[i]-first_weights))
+    second_weights = second_weights + (learning_rate*(l[i]-second_weights))
+    
+    learning_rate = learning_rate*0.5
+
+ print("input no. ",e)
     for i in range(len(x)):
         for j in range(len(w[1])):
             temp=0
@@ -15,15 +52,10 @@ while(e<=3):
         d[j]=temp
         if(d[0]<d[1]):
             J=0
-        else:
-            J=1
-        print("Winning unit is : ",J+1)
-        print("Updating" )
-        for m in range(4):
-            cw=lr*(x[i,m]-w[m,J])
-            w[m,J]=w[m,J]+cw
-        print("Updated weights ",w)
-    e=e+1
-    lr=0.5*lr
-    print('Updated learning rate after ',e,'epoc is ',lr)
+   
 
+
+%matplotlib inline
+import matplotlib.pyplot as plt
+
+plt.show()

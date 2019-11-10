@@ -4,7 +4,7 @@ from csv import reader
 from math import sqrt
  
 # Load a CSV file
-def load_csv(Casearin_section.csv):
+def load_csv(filename):
 	dataset = list()
 	with open(filename, 'r') as file:
 		csv_reader = reader(file)
@@ -111,7 +111,7 @@ def learning_vector_quantization(train, test, n_codebooks, lrate, epochs):
 # Test LVQ on Ionosphere dataset
 seed(1)
 # load and prepare data
-filename = 'ionosphere.csv'
+filename = 'caesarian.csv'
 dataset = load_csv(filename)
 for i in range(len(dataset[0])-1):
 	str_column_to_float(dataset, i)

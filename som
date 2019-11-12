@@ -24,19 +24,27 @@ leanring_rate = np.random.rand()
 
 learning_rate = leanring_rate
 
-for i in range(5):
-    first = (l[i]-first_weights)
-    first_square = first**2
-    second = (l[i]-second_weights)
-    second_square = second**2
-    answer = min(first_square,second_square)
-    print(answer)
-    first_weights = first_weights+(learning_rate*(l[i]-first_weights))
-    second_weights = second_weights + (learning_rate*(l[i]-second_weights))
+first_weight = 0.3
+
+second_weight = 0.7
+
+answer = []
+for l in x:
+    for i in range(5):
+        ##calculate the weights that is which will belong to which cluster 
+        
+        first_weight = (l[i] - first_weight)
+        second_weight = (l[i]-second_weight)
+    ##finding minimun
+   
+   if(first_weight>second_weight):
+        answer.append(2)
+    else:
+        answer.append(1)
+    print(first_weight,second_weight)
+    ##updationg of the weights
     
-    learning_rate = learning_rate*0.5
-
-%matplotlib inline
-import matplotlib.pyplot as plt
-
-plt.show()
+    for p in range(5):
+        first_weight = first_weight+(learning_rate*(l[p]-first_weight))
+        second_weight = second_weight + (learning_rate*(l[i]-second_weight))
+    learning_rate = learning_rate*0.05

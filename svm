@@ -6,6 +6,10 @@ data = pd.read_csv ('csv_result-caesarian.csv')
 
 df = pd.DataFrame(data)
 
+df[:10]
+
+df.info()
+
 matrix=df.corr()
 
 sns.heatmap(matrix,vmax=0.8,square=True,cmap='BrBG')

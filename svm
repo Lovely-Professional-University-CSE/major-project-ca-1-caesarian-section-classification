@@ -1,24 +1,10 @@
 import pandas as pd
 
-import seaborn as sns
-
 import numpy as np
 
 data = pd.read_csv ('csv_result-caesarian.csv')
 
 df = pd.DataFrame(data)
-
-df['Age']=df['Age'].astype(int)
-
-df['Delivery number']=df['Delivery number'].astype(int)
-
-df['Delivery time']=df['Delivery time'].astype(int)
-
-df['Blood of Pressure']=df['Blood of Pressure'].astype(int)
-
-df['Heart Problem']=df['Heart Problem'].astype(int)
-
-df['Caesarian']=df['Caesarian'].astype(int)
 
 matrix=df.corr()
 

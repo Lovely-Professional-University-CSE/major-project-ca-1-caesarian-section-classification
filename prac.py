@@ -61,6 +61,7 @@ class network:
 			self.biases[i]=self.biases[i]+grad_b
 			err=np.dot(np.transpose(self.we[i]),err)
 		####training completes####
+"""
 import random
 def AND(val):
 	a=[]
@@ -172,3 +173,5 @@ while ch==1:
 	print([a,b],'=>',fin)
 	print('Do you want to continue??\nEnter 1 to continue and 0 to exit')
 	ch=int(input('enter please=>'))
+"""
+import random

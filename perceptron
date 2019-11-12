@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-data=pd.read_csv('csv_caesarian-result.csv')
+data=pd.read_csv('csv_result-caesarian.csv')
 print(data.head())
 data.shape
 data.describe
